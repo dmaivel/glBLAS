@@ -666,8 +666,7 @@ static bool egl_initialize(_glblas_internal_context *context, int pbuffer_width,
     eglChooseConfig(context->dpy, egl_generic_config, &context->config, 1, &context->n_config);
     context->surface = eglCreatePbufferSurface(context->dpy, context->config, pb_attr);
     eglBindAPI(EGL_OPENGL_API);
-    context->egl_context = eglCreateContext(context->dpy, context->config, EGL_NO_CONTEXT, NULL);    
-    eglMakeCurrent(context->dpy, context->surface, context->surface, context->egl_context);
+    context->egl_context = eglCreateContext(context->dpy, context->config, EGL_NO_CONTEXT, NULL);
 
     return eglMakeCurrent(context->dpy, context->surface, context->surface, context->egl_context) != EGL_NOT_INITIALIZED;
 }
